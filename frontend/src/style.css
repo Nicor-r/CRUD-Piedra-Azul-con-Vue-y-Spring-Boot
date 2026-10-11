@@ -1,0 +1,69 @@
+:root {
+  --azul-fondo: #6fa3d8;
+  --azul-oscuro: #16324f;
+  --crema: #fbf8f2;
+  --texto: #223342;
+  --texto-suave: #647285;
+  --borde: #e7e9ec;
+  --error: #b5432e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Lexend', 'Segoe UI', system-ui, sans-serif;
+  color: var(--texto);
+  background: linear-gradient(160deg, #dcebf7 0%, var(--crema) 55%);
+  min-height: 100vh;
+}
+
+.contenedor { max-width: 60rem; margin: 0 auto; padding: 2rem 1rem; }
+
+header.marca { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem; }
+header.marca .logo {
+  width: 2.8rem; height: 2.8rem; border-radius: 0.8rem;
+  background: var(--azul-fondo); color: var(--azul-oscuro);
+  display: flex; align-items: center; justify-content: center; font-weight: 600;
+}
+header.marca h1 { font-size: 1.3rem; margin: 0; color: var(--azul-oscuro); }
+header.marca p { margin: 0; font-size: 0.9rem; color: var(--texto-suave); }
+
+.tabs { display: flex; gap: 0.3rem; background: #eef2f6; padding: 0.3rem; border-radius: 999px; width: fit-content; margin-bottom: 1.2rem; }
+.tabs button {
+  border: none; background: transparent; padding: 0.6rem 1.4rem; border-radius: 999px;
+  font: inherit; color: var(--texto-suave); cursor: pointer;
+}
+.tabs button.activa { background: #fff; color: var(--azul-oscuro); box-shadow: 0 0.2rem 0.5rem rgba(22, 50, 79, 0.15); }
+
+.panel { background: #fff; border-radius: 1rem; padding: 1.4rem; box-shadow: 0 1rem 2rem -1.2rem rgba(22, 50, 79, 0.35); margin-bottom: 1.2rem; }
+.panel h2 { margin: 0 0 1rem; font-size: 1.05rem; color: var(--azul-oscuro); }
+
+form.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 0.9rem; }
+.campo label { display: block; font-size: 0.85rem; margin-bottom: 0.3rem; font-weight: 500; }
+.campo input, .campo select {
+  width: 100%; padding: 0.6rem 0.75rem; border: 1.5px solid var(--borde); border-radius: 0.7rem;
+  font: inherit; background: #fafbfc; color: var(--texto);
+}
+.campo input:focus-visible, .campo select:focus-visible { outline: 3px solid var(--azul-fondo); outline-offset: 1px; }
+
+.acciones { grid-column: 1 / -1; display: flex; gap: 0.6rem; flex-wrap: wrap; }
+
+button.btn {
+  border: none; border-radius: 999px; padding: 0.6rem 1.3rem; font: inherit; cursor: pointer;
+  color: #fff; background: linear-gradient(135deg, var(--azul-fondo), var(--azul-oscuro));
+}
+button.btn.secundario { background: #eef2f6; color: var(--azul-oscuro); }
+button.btn.peligro { background: var(--error); }
+button.btn.chico { padding: 0.35rem 0.9rem; font-size: 0.85rem; }
+
+.mensaje { padding: 0.7rem 1rem; border-radius: 0.7rem; margin-bottom: 1rem; font-size: 0.9rem; }
+.mensaje.ok { background: #e3f1e6; color: #1f5a2d; }
+.mensaje.error { background: #f8e4df; color: var(--error); }
+
+.tabla-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { text-align: left; padding: 0.65rem 0.5rem; border-bottom: 1px solid var(--borde); }
+th { color: var(--texto-suave); font-weight: 500; }
+td.celda-acciones { display: flex; gap: 0.4rem; }
+.vacio { color: var(--texto-suave); padding: 1rem 0; }
